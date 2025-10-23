@@ -27,7 +27,10 @@
         min-height: 100vh;
         overflow-x: hidden;
       }
-
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
       .container {
         max-width: 1200px;
         margin: 0 auto;
@@ -39,6 +42,7 @@
         text-align: center;
         padding: 80px 0;
         position: relative;
+        overflow: hidden;
       }
 
       .hero::before {
@@ -55,13 +59,32 @@
         z-index: -1;
       }
 
+      .logo-container {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 30px;
+      }
+
       .logo {
         font-size: 5rem;
         font-weight: 900;
-        margin-bottom: 20px;
         text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
         letter-spacing: 3px;
-        animation: pulse 2s infinite;
+        position: relative;
+        z-index: 2;
+      }
+
+      .logo-bg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 180px;
+        height: 180px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        z-index: 1;
+        animation: rotate 20s linear infinite;
       }
 
       .tagline {
@@ -69,6 +92,20 @@
         margin-bottom: 30px;
         font-weight: 300;
         text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        position: relative;
+        display: inline-block;
+      }
+
+      .tagline::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background: white;
+        border-radius: 2px;
       }
 
       .description {
@@ -77,6 +114,57 @@
         font-size: 1.2rem;
         line-height: 1.6;
         text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        background: rgba(255, 255, 255, 0.1);
+        padding: 25px;
+        border-radius: 15px;
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Features Section */
+      .features {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 25px;
+        margin: 60px 0;
+      }
+
+      .feature-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        padding: 25px;
+        width: 250px;
+        text-align: center;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .feature-card:hover {
+        transform: translateY(-10px);
+        background: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      .feature-icon {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+        color: #ffeb3b;
+        text-shadow: 0 0 10px rgba(255, 235, 59, 0.5);
+      }
+
+      .feature-title {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+
+      .feature-desc {
+        font-size: 0.95rem;
+        opacity: 0.9;
       }
 
       /* Contact Section */
@@ -89,6 +177,23 @@
         margin: 0 auto;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         border: 1px solid rgba(255, 255, 255, 0.2);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.1) 0%,
+          rgba(255, 255, 255, 0) 70%
+        );
+        z-index: -1;
       }
 
       .contact-title {
@@ -96,6 +201,19 @@
         margin-bottom: 30px;
         text-align: center;
         text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        position: relative;
+      }
+
+      .contact-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: white;
+        border-radius: 2px;
       }
 
       .contact-info {
@@ -109,11 +227,35 @@
         display: flex;
         align-items: center;
         gap: 15px;
-        padding: 15px 25px;
+        padding: 20px 25px;
         background: rgba(255, 255, 255, 0.15);
-        border-radius: 50px;
+        border-radius: 15px;
         transition: all 0.3s ease;
         cursor: pointer;
+        width: 100%;
+        max-width: 350px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact-item::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: left 0.5s;
+      }
+
+      .contact-item:hover::before {
+        left: 100%;
       }
 
       .contact-item:hover {
@@ -124,14 +266,21 @@
 
       .contact-icon {
         font-size: 1.5rem;
-        width: 50px;
-        height: 50px;
+        width: 60px;
+        height: 60px;
         display: flex;
         align-items: center;
         justify-content: center;
         background: white;
         color: #d32f2f;
         border-radius: 50%;
+        flex-shrink: 0;
+        transition: all 0.3s ease;
+      }
+
+      .contact-item:hover .contact-icon {
+        transform: scale(1.1);
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
       }
 
       .contact-details h3 {
@@ -142,6 +291,16 @@
       .contact-details p {
         font-size: 1rem;
         opacity: 0.9;
+      }
+
+      /* Footer */
+      .footer {
+        text-align: center;
+        margin-top: 60px;
+        padding: 20px;
+        font-size: 0.9rem;
+        opacity: 0.8;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
       }
 
       /* Animations */
@@ -169,6 +328,15 @@
         }
       }
 
+      @keyframes rotate {
+        0% {
+          transform: translate(-50%, -50%) rotate(0deg);
+        }
+        100% {
+          transform: translate(-50%, -50%) rotate(360deg);
+        }
+      }
+
       .floating {
         animation: float 5s ease-in-out infinite;
       }
@@ -177,6 +345,11 @@
       @media (max-width: 768px) {
         .logo {
           font-size: 3.5rem;
+        }
+
+        .logo-bg {
+          width: 140px;
+          height: 140px;
         }
 
         .tagline {
@@ -196,11 +369,25 @@
           width: 100%;
           max-width: 300px;
         }
+
+        .features {
+          gap: 15px;
+        }
+
+        .feature-card {
+          width: 100%;
+          max-width: 300px;
+        }
       }
 
       @media (max-width: 480px) {
         .logo {
           font-size: 2.8rem;
+        }
+
+        .logo-bg {
+          width: 110px;
+          height: 110px;
         }
 
         .tagline {
@@ -210,6 +397,15 @@
         .contact {
           padding: 30px 20px;
         }
+
+        .contact-item {
+          padding: 15px 20px;
+        }
+
+        .contact-icon {
+          width: 50px;
+          height: 50px;
+        }
       }
     </style>
   </head>
@@ -217,7 +413,10 @@
     <div class="container">
       <!-- Hero Section -->
       <section class="hero">
-        <h1 class="logo floating">ZODIAC Delivery</h1>
+        <div class="logo-container">
+          <div class="logo-bg"></div>
+          <h1 class="logo floating">ZODIAC Delivery</h1>
+        </div>
         <p class="tagline">شركة صغيرة ساترها ربي</p>
         <p class="description">
           شركة توصيل محلية رائدة في مدينة جيجل، نُوفّر خدمات توصيل سريعة وآمنة
@@ -228,37 +427,98 @@
         </p>
       </section>
 
+      <!-- Features Section -->
+      <section class="features">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <h3 class="feature-title">توصيل سريع</h3>
+          <p class="feature-desc">خدمة توصيل فائقة السرعة في مدينة جيجل</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3 class="feature-title">آمن وموثوق</h3>
+          <p class="feature-desc">ضمان وصول طلباتك بأمان تام</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-utensils"></i>
+          </div>
+          <h3 class="feature-title">جميع الطلبات</h3>
+          <p class="feature-desc">نقوم بتوصيل الطعام والمنتجات الأخرى</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-motorcycle"></i>
+          </div>
+          <h3 class="feature-title">نقل الاشخاص بالدراجة النارية</h3>
+          <p class="feature-desc">
+            خدمة نقل الأشخاص بسرعة وأمان عبر الدراجات النارية
+          </p>
+        </div>
+      </section>
+
       <!-- Contact Section -->
       <section class="contact">
-        <h2 class="contact-title">Get in Touch</h2>
+        <h2 class="contact-title">تواصل معنا</h2>
         <div class="contact-info">
-          <div class="contact-item">
+          <a href="tel:0561074394" class="contact-item">
             <div class="contact-icon">
               <i class="fas fa-phone"></i>
             </div>
             <div class="contact-details">
-              <h3>Phone</h3>
-              <a type="Phone">+213561074394</a>
+              <h3>الهاتف</h3>
+              <p>0561074394</p>
             </div>
-          </div>
+          </a>
 
-          <div class="contact-item">
+          <a href="#" class="contact-item">
             <div class="contact-icon">
               <i class="fab fa-facebook-f"></i>
             </div>
             <div class="contact-details">
-              <h3>Facebook</h3>
+              <h3>فيسبوك</h3>
               <p>/ZodiacDelivery</p>
             </div>
-          </div>
+          </a>
+
+          <!-- Instagram Card -->
+          <a
+            href="https://www.instagram.com/zodiac_delivery_18/"
+            class="contact-item"
+          >
+            <div class="contact-icon">
+              <i class="fab fa-instagram"></i>
+            </div>
+            <div class="contact-details">
+              <h3>انستغرام</h3>
+              <p>@zodiac_delivery_05</p>
+            </div>
+          </a>
         </div>
       </section>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <p>
+          ZODIAC Delivery &copy; 2025 <br />
+          خدمة التوصيل المفضلة في جيجل
+        </p>
+      </footer>
     </div>
 
     <script>
       // Simple animation on page load
       document.addEventListener("DOMContentLoaded", function () {
-        const elements = document.querySelectorAll(".contact-item");
+        const elements = document.querySelectorAll(
+          ".contact-item, .feature-card"
+        );
         elements.forEach((el, index) => {
           el.style.opacity = "0";
           el.style.transform = "translateY(20px)";
