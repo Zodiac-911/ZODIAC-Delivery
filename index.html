@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ZODIAC Delivery</title>
+    <link rel="icon" href="ZodiacDelivery.ico" type="image/x-icon" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -37,7 +38,6 @@
         padding: 40px 20px;
       }
 
-      /* Hero Section */
       .hero {
         text-align: center;
         padding: 80px 0;
@@ -122,7 +122,6 @@
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
       }
 
-      /* Features Section */
       .features {
         display: flex;
         flex-wrap: wrap;
@@ -167,7 +166,6 @@
         opacity: 0.9;
       }
 
-      /* Contact Section */
       .contact {
         background-color: rgba(255, 255, 255, 0.1);
         backdrop-filter: blur(10px);
@@ -293,7 +291,6 @@
         opacity: 0.9;
       }
 
-      /* Footer */
       .footer {
         text-align: center;
         margin-top: 60px;
@@ -303,7 +300,6 @@
         border-top: 1px solid rgba(255, 255, 255, 0.2);
       }
 
-      /* Animations */
       @keyframes pulse {
         0% {
           transform: scale(1);
@@ -341,7 +337,6 @@
         animation: float 5s ease-in-out infinite;
       }
 
-      /* Responsive */
       @media (max-width: 768px) {
         .logo {
           font-size: 3.5rem;
@@ -411,7 +406,6 @@
   </head>
   <body>
     <div class="container">
-      <!-- Hero Section -->
       <section class="hero">
         <div class="logo-container">
           <div class="logo-bg"></div>
@@ -427,7 +421,6 @@
         </p>
       </section>
 
-      <!-- Features Section -->
       <section class="features">
         <div class="feature-card">
           <div class="feature-icon">
@@ -464,7 +457,6 @@
         </div>
       </section>
 
-      <!-- Contact Section -->
       <section class="contact">
         <h2 class="contact-title">تواصل معنا</h2>
         <div class="contact-info">
@@ -478,7 +470,7 @@
             </div>
           </a>
 
-          <a href="#" class="contact-item">
+          <a target="_blank" href="#" class="contact-item">
             <div class="contact-icon">
               <i class="fab fa-facebook-f"></i>
             </div>
@@ -488,8 +480,8 @@
             </div>
           </a>
 
-          <!-- Instagram Card -->
           <a
+            target="_blank"
             href="https://www.instagram.com/zodiac_delivery_18/"
             class="contact-item"
           >
@@ -498,13 +490,25 @@
             </div>
             <div class="contact-details">
               <h3>انستغرام</h3>
-              <p>@zodiac_delivery_05</p>
+              <p>@zodiac_delivery_18</p>
+            </div>
+          </a>
+          <a
+            target="_blank"
+            href="https://www.tiktok.com/@zodiac.delivery18"
+            class="contact-item"
+          >
+            <div class="contact-icon">
+              <i class="fab fa-tiktok"></i>
+            </div>
+            <div class="contact-details">
+              <h3>تيك توك</h3>
+              <p>@zodiac.delivery18</p>
             </div>
           </a>
         </div>
       </section>
 
-      <!-- Footer -->
       <footer class="footer">
         <p>
           ZODIAC Delivery &copy; 2025 <br />
@@ -514,7 +518,6 @@
     </div>
 
     <script>
-      // Simple animation on page load
       document.addEventListener("DOMContentLoaded", function () {
         const elements = document.querySelectorAll(
           ".contact-item, .feature-card"
